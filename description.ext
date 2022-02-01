@@ -1,0 +1,79 @@
+// ============================================================================================
+// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+// Mission Header
+
+briefingName = "FOX co12 CUP Airschool v8"; // Test shown in server mission selection and title
+author = "Taizan"; // Your name
+overviewPicture = "mission\loadlogo.paa"; // Picture shown in misison selection
+onLoadName = "Foxhound Airschool"; // Mission loadscreen name
+loadScreen = "mission\loadlogo.paa";  // Picture shown when mission is loading
+onLoadMission = "Rotary and fixed wing training scenario"; //Mission loadscreen description
+
+class Header
+{
+    gameType = Coop;
+    minPlayers = 1;
+    maxPlayers = 12 ;
+};
+
+
+// CONSOLE
+enableDebugConsole[] = {""}; // UID
+allowFunctionsLog = 1;
+
+// RESPAWN
+// 1    Respawn as Bird (for normal mission, no reinforcements).
+// 2    Respawn on death location without gear, used in special missions.
+// 3    Respawn at base marker (used when reinforcements are an option).
+// 4    Respawn either in group if an AI slot is filled or as seagull.
+// If 3 is chosen, place down makers with the following names as necessary:
+// respawn_west, respawn_guerilla, respawn_east, respawn_civillian.
+respawn = 3; //Suggested NOT to change this
+respawnDelay = 5;
+respawnTemplatesWest[] = {"Counter","Wave"}; // Wave respawns and a countdown for west side
+respawnDialog = 0;
+respawnOnStart = -1;
+
+// Additional, script specific paramenters can be added in the file \mission\parameters.hpp
+// disable AI default 1
+disabledAI =1;
+
+
+//Corpses
+corpseManagerMode = 1; //0 = None, 1 = All, 2 = None_But_Respawned, 3 = All_But_Respawned
+corpseLimit = 30; // Corpse limit before which ( <= ) corpseRemovalMaxTime applies and after which ( > ) corpseRemovalMinTime applies. 
+corpseRemovalMinTime = 180; // Remove all bodies that have been dead longer than corpseRemovalMinTime when corpseLimit is breached. 
+corpseRemovalMaxTime = 600; // Maximum time a corpse can remain on the ground (if total number of corpses is equal or under corpseLimit). 
+minPlayerDistance = 500; // The minimum distance between corpse or wreck and nearest player before the corpse or wreck is allowed to be removed by the garbage collector. 
+
+
+// CBA
+cba_settings_hasSettingsFile = 1;
+
+#include "f\common\controls.hpp"
+
+class CfgDebriefing {
+	#include "mission\endings.hpp"
+};
+
+class CfgFunctions {
+    #include "f\common\functions.hpp"
+    #include "ws_fnc\config.hpp"
+};
+
+class Params {
+    #include "mission\parameters.hpp"
+};
+
+class CfgRemoteExec {   
+    #include "f\common\remoteExec.hpp"
+};
+
+class CfgNotifications {
+    #include "f\common\notifications.hpp"
+};
+
+
+#include "mission\description.hpp"
+
+

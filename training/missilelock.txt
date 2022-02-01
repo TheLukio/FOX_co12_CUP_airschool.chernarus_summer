@@ -1,0 +1,17 @@
+soundLocked[] = {"\ca\Tracked\Data\Sound\alarm_loop1",0.0003162277 6,2};
+soundIncommingMissile[] = {"\ca\Tracked\Data\Sound\alarm_loop1",0.0003162277 6,4};
+
+playsound3d ["A3\sounds_f\air\heli_attack_02\alarm.wss",player];
+
+playsound3d ["A3\sounds_f\sfx\alarm_1.wss",player];
+
+
+while {triggeractivated} do          {              playsound3d ["A3\sounds_f\air\heli_attack_02\alarm.wss",player];              sleep 5;          };
+
+while {true} do {
+    playSound3D ["A3\sounds_f\air\heli_attack_02\alarm.wss", thisTrigger];
+    sleep 1;
+    };
+	
+	
+	
